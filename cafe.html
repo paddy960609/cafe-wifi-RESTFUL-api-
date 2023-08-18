@@ -1,0 +1,40 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{cafe.img_url}}')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="post-heading">
+					<h1>{{cafe.name}}</h1>
+					<h2 class="subheading">{{cafe.map_url}}</h2>
+					<span class="meta">Their coffee costs
+              <a href="#">{{cafe.coffee_price}}</a>
+              on {{cafe.location}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <p>Does it have toilets? {{cafe.has_toilet}}</p>
+            <p>Does it have wifi? {{cafe.has_wifi}}</p>
+            <p>Does it have sockets? {{cafe.has_sockets}}</p>
+            <p>Can you takes calls in there? {{cafe.can_take_calls}}</p>
+           <hr>
+           <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{url_for('update_data', cafe_id=cafe.id)}}">Edit Cafe</a>
+        </div>
+          </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+{% include "footer.html" %}

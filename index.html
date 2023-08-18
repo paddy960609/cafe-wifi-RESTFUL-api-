@@ -1,0 +1,42 @@
+{% include "header.html" %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe&Wifi API</title>
+</head>
+<body>
+    <h1>Welcome to the Cafe & Wifi API</h1>
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for cafe in all_cafes %}
+        <div class="post-preview">
+
+<!--          Anchor tag to delete post-->
+          <a href="{{ url_for('show_cafe', cafe_id=cafe.id) }}">
+            <h2 class="cafe-name">
+              {{cafe.name}}
+            </h2>
+            <h3 class="cafe-location">
+              {{cafe.location}}
+            </h3>
+          </a>
+          <p class="post-meta">Located at {{cafe.map_url}} {{cafe.img_url}} <a href={{url_for('delete_data', cafe_id=cafe.id)}}>✘</a>
+          </p>
+        </div>
+        <hr>
+        {% endfor %}
+
+
+        <!-- New Post -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{url_for('post_new_cafe')}}">Add cafe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!--</html>-->
+
+{% include "footer.html" %}
